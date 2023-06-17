@@ -1,11 +1,11 @@
 FROM node:18-alpine
 
-WORKDIR /src
-COPY package.json package-lock.json /src/
+WORKDIR /node
+COPY package.json /node/
+COPY package-lock.json /node/
 RUN npm install
 
-COPY . /src
+COPY . /node
 
 EXPOSE 8080
-
 CMD ["node", "src/index.js"]
